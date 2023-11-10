@@ -20,8 +20,8 @@ from todoapp.views import index,add_todo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('todo/',include('todoapp.urls')),
-    path('',index,name='index'),
-    path('',add_todo,name='add_todo')
+    path('todo/',include('todoapp.urls')),
+    # path('',index,name='index'),
+    # path('',add_todo,name='add_todo')
     
 ]
