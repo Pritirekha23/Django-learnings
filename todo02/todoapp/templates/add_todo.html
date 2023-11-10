@@ -1,0 +1,16 @@
+<!-- todo_app/templates/todo_app/add_todo.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add TODO</title>
+</head>
+<body>
+    <h2>Add TODO</h2>
+    <form method="post" action="{% url 'add_todo' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add</button>
+    </form>
+    <a href="{% url 'todo_list' %}">Back to TODO List</a>
+</body>
+</html>
