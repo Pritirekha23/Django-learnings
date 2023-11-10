@@ -1,17 +1,11 @@
 from django.shortcuts import render, redirect
 from .models import TodoItem
-from .forms import TodoItemForm
+# from .forms import TodoItemForm
 
-def index(request):
-    todos = TodoItem.objects.all()
-    return render(request, 'todoapp/index.html', {'todos': todos})
+def home(request):
+    list_of_todo=TodoItem.objects.all().values
+    return render(request,'home.html',{'todo_list':list_of_todo})
+    
 
-def add_todo(request):
-    if request.method == 'POST':
-        form = TodoItemForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-    else:
-        form = TodoItemForm()
-    return render(request, 'todoapp/add_todo.html', {'form': form})
+
+

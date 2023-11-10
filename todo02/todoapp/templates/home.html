@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page</title>
+</head>
+<body>
+  <center><h1>Hi this is todo app</h1></center>
+  {% for i in todo_list %}
+    <h3>{{i.title}}</h3>
+    <h4>{{i.description}}</h4>
+  {% endfor %} 
+</body>
+</html>
