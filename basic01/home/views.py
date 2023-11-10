@@ -9,6 +9,6 @@ from django.template import loader
 #     return HttpResponse("Hii")
 
 # after creating index.html in templates
-def home(request):
-    template=loader.get_template('index.html')
-    return HttpResponse(template.render())
+
+def index(request):
+    return render(request,'index.html')

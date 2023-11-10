@@ -1,9 +1,11 @@
 from django.contrib import admin
 from django.urls import path,include
-from . import views
+# from . import views
+from .views import index
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path('', include('home.urls')),
-    path('home/',views.home,name='home')
+    #path('admin/', admin.site.urls),
+    # path('home/',views.home,name='home')
+
+    path('index/',index,name='index')
 ]
