@@ -7,9 +7,21 @@
 </head>
 <body>
   <center><h1>Hi this is todo app</h1></center>
-  {% for i in todo_list %}
+  {% comment %} {% for i in todo_list %}
     <h3>{{i.title}}</h3>
     <h4>{{i.description}}</h4>
-  {% endfor %} 
+
+
+
+  {% endfor %}  {% endcomment %}
+  {% for i in todo_list %}
+  <div class="card text-bg-danger mb-3" style="max-width: 18rem;">
+    {% comment %} <div class="card-header">Header</div> {% endcomment %}
+    <div class="card-body">
+          <h5 class="card-title">{{i.title}}</h5>
+      <p class="card-text">{{i.description}}</p>
+    
+</div>
+{% endfor %}
 </body>
 </html>
