@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home-page</title>
+  </head>
+  <body>
+    <div class="main">
+      <center>
+        <strong><i>NOTE_APP</i></strong>
+      </center>
+    </div>
+
+    <div class="addtask">
+      <a href="{% url 'addtask' %}">
+        <button><b>ADDTASK</b></button>
+      </a>
+    </div>
+
+    <div class="alltask">
+      <h2>YOUR ALL TASKS ARE:</h2>
+     
+        <ul>
+            {% for i in todo_list%}
+                <li>{{ i.title }} - {{ i.description}}</li>
+            {% endfor %}
+        </ul>
+      
+      
+    </div>
+    {% comment %}
+    <div class="form">
+      <form action="addtask">
+        {% csrf_token %}
+        <strong
+          >Task Title:
+          <input
+            type="text"
+            placeholder="Enter your task here"
+            name="TaskTitle"
+          />
+        </strong>
+      </form>
+    </div>
+    {% endcomment %}
+  </body>
+</html>
