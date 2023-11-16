@@ -1,5 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Poppins:ital,wght@0,100;0,500;0,600;1,100;1,200;1,300;1,400&family=Roboto+Slab:wght@400;700&family=Work+Sans:ital,wght@1,500&family=Ysabeau+Office:ital,wght@0,1;0,100;0,200;0,300;1,200;1,400;1,500&display=swap");
+
+body {
+  background-color: #f0f0f0; 
+  font-family: poppins;
+  font-size: 1.2rem;
+}
 .formdiv {
-  /* margin: 10px; */
   border: 3px solid #8eaccd;
   border-radius: 20px;
   color: #333;
@@ -7,9 +13,6 @@
   width: 30%;
   margin-left: 34%;
   margin-top: 5%;
-
-  /* color: #fff; */
-  /* box-shadow: 5px 10px 5px 10px rgba(180, 232, 102, 0.5); */
 }
 form {
   display: flex;
