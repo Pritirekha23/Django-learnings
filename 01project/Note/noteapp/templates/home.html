@@ -1,48 +1,73 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home-page</title>
+    <link rel="stylesheet" href="{% static 'h.css'%}" />
   </head>
   <body>
-    <div class="main">
+    <div class="heading">
       <center>
-        <strong><i>NOTE_APP</i></strong>
+        <strong
+          ><i><u>NOTE APP</u></i></strong>
       </center>
     </div>
 
-    <div class="addtask">
-      <a href="{% url 'addtask' %}">
-        <button><b>ADDTASK</b></button>
-      </a>
-    </div>
+    <div class="homepage">
+      <div class="formdiv">
+        <form action="{% url 'addtask' %}" method="POST">
+          {% csrf_token %}
+          <label>
+            Task Title:
+            <input
+              type="text"
+              placeholder="Enter the task title here :"
+              name="TaskTitle"
+            />
+          </label>
+          <label for="description">Enter your text:</label>
+          <textarea
+            id="description"
+            name="userText"
+            rows="4"
+            cols="50"
+            placeholder="Enter the taask description here:"
+          ></textarea>
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
 
-    <div class="alltask">
-      <h2>YOUR ALL TASKS ARE:</h2>
-     
-        <ul>
+      <div class="alltask">
+        <center class="headingalltask">YOUR ALL TASKS ARE:</center>
+
+        <div class="tasklists">
+          <ul class="todo-list">
             {% for i in todo_list%}
-                <li>{{ i.title }} - {{ i.description}}</li>
-            {% endfor %}
-        </ul>
-      
-      
+            <li>
+              <div class="task">
+                <span class="task-info">
+                  {{ i.title | capfirst }} - {{ i.description | capfirst }}
+                </span>
+                {% comment %} <a class="delete-btn" href="{% url 'delete' i.id %}">
+                  <button><b>Delete</b></button>
+                </a>
+                <a class="btn" href="{% url 'update' i.id %}"><button><b>Update</b></button></a> {% endcomment %}
+                <div class="button-container">
+                  <a class="delete-btn" href="{% url 'delete' i.id %}">
+                    <button><b>Delete</b></button>
+                  </a>
+                  <a class="btn" href="{% url 'update' i.id %}">
+                    <button><b>Update</b></button>
+                  </a>
+                </div>
+              </div>
+             {% endfor %}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    {% comment %}
-    <div class="form">
-      <form action="addtask">
-        {% csrf_token %}
-        <strong
-          >Task Title:
-          <input
-            type="text"
-            placeholder="Enter your task here"
-            name="TaskTitle"
-          />
-        </strong>
-      </form>
-    </div>
-    {% endcomment %}
   </body>
 </html>

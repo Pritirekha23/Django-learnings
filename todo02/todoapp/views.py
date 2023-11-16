@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import TodoItem
+
 # from .forms import TodoItemForm
 
 def home(request):
@@ -7,5 +8,7 @@ def home(request):
     return render(request,'home.html',{'todo_list':list_of_todo})
     
 
-
+def entry(request):
+    
+    return render(request,'entry.html')
 

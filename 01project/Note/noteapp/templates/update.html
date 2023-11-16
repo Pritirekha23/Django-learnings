@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'update.css' %}" />
+    <title>update</title>
+  </head>
+  <body>
+    <div>
+      <h1>Hello this is update page:</h1>
+    </div>
+    <div class="heading">
+      <center>
+        <strong
+          ><i><u>NOTE APP</u></i></strong
+        >
+      </center>
+    </div>
+    <div class="formdiv">
+      <form action="{% url 'addtask' %}" method="POST">
+        {% csrf_token %}
+        <label>
+          Task Title:
+          <input
+            type="text"
+            placeholder="Enter the task title here :"
+            name="TaskTitle"
+          />
+        </label>
+        <label for="description">Enter your text:</label>
+        <textarea
+          id="description"
+          name="userText"
+          rows="4"
+          cols="50"
+          placeholder="Enter the taask description here:"
+        ></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
