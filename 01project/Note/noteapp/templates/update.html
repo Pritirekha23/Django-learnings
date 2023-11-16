@@ -20,7 +20,7 @@
       </center>
     </div>
     <div class="formdiv">
-      <form action="update" method="POST">
+      <form action="{% url 'update' todo_list.id %}" method="POST">
         {% csrf_token %}
         <label>
           Task Title:
