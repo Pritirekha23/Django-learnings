@@ -20,24 +20,23 @@
       </center>
     </div>
     <div class="formdiv">
-      <form action="{% url 'addtask' %}" method="POST">
+      <form action="update" method="POST">
         {% csrf_token %}
         <label>
           Task Title:
           <input
             type="text"
-            placeholder="Enter the task title here :"
             name="TaskTitle"
+            value="{{todo_list.title}}"
           />
         </label>
         <label for="description">Enter your text:</label>
         <textarea
-          id="description"
-          name="userText"
-          rows="4"
-          cols="50"
-          placeholder="Enter the taask description here:"
-        ></textarea>
+        id="description"
+        name="userText"
+        rows="4"
+        cols="50"
+    >{{ todo_list.description }}</textarea>
         <button type="submit" class="btn">Submit</button>
       </form>
     </div>

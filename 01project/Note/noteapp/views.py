@@ -19,14 +19,15 @@ def addtask(request):
 
 
 def update(request,id):
-   return render(request,'update.html')
    get_task=Task.objects.get(id=id)
    if request.method=="POST":
       tasktitle=request.POST['TaskTitle']
+      task_description = request.POST.get('userText')
       get_task.title=tasktitle
-      get_task.save(update_fields=['title'])
+      get_task.description = task_description
+      get_task.save(update_fields=['title','description'])
       return redirect('home')
-   return render(request,'update.html',{"todo-list":get_task}) 
+   return render(request,'update.html',{"todo_list":get_task}) 
 
 
 def delete(request, id):
