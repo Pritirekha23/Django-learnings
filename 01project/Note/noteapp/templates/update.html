@@ -10,7 +10,7 @@
   </head>
   <body>
     <div>
-     <center> <h1>Hello this is update page:</h1></center>
+      <center><h1>Hello this is update page:</h1></center>
     </div>
     <div class="heading">
       <center>
@@ -22,21 +22,19 @@
     <div class="formdiv">
       <form action="{% url 'update' todo_list.id %}" method="POST">
         {% csrf_token %}
+
         <label>
           Task Title:
-          <input
-            type="text"
-            name="TaskTitle"
-            value="{{todo_list.title}}"
-          />
+          <input type="text" name="TaskTitle" value="{{todo_list.title}}" />
         </label>
+
         <label for="description">Enter your text:</label>
-        <textarea
-        id="description"
-        name="userText"
-        rows="4"
-        cols="50"
-    >{{ todo_list.description }}</textarea>
+
+        <textarea id="description" name="userText" rows="4" cols="50">
+
+       {{ todo_list.description }}
+       </textarea
+        >
         <button type="submit" class="btn">Submit</button>
       </form>
     </div>
